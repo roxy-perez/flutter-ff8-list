@@ -1,4 +1,5 @@
 import 'package:final_fantasy_viii_list/src/widgets/header.dart';
+import 'package:final_fantasy_viii_list/src/widgets/list.dart';
 import 'package:final_fantasy_viii_list/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.fullDarkBlue,
-      body: Column(children: [HeaderWidget()]),
+      body: Column(children: [HeaderWidget(), ListCharacters()]),
     );
   }
 }

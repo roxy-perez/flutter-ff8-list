@@ -1,6 +1,6 @@
-# final_fantasy_xviii_list
+# Final Fantasy VIII List
 
-A new Flutter project.
+A new Flutter project about Final Fantasy VIII.
 
 ## Getting Started
 

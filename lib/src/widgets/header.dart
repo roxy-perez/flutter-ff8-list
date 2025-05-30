@@ -6,22 +6,22 @@ class HeaderWidget extends StatelessWidget {
 
   final TextStyle textStyle = TextStyle(
     color: Colors.white,
-    fontSize: 26,
-    fontFamily: 'FinalFantasy',
+    fontSize: 40,
+    fontFamily: 'Highwind',
   );
 
   final TextStyle subTextStyle = TextStyle(
-    color: AppColors.gray,
-    fontSize: 16,
+    color: AppColors.lightBlue,
+    fontSize: 18,
     fontFamily: 'Montserrat',
   );
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10.0),
       alignment: Alignment.bottomCenter,
-      height: 150,
+      height: 160,
       decoration: BoxDecoration(color: AppColors.darkBlue),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,20 +31,20 @@ class HeaderWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Final Fantasy VIII', style: textStyle),
-              Text('Serie', style: subTextStyle),
+              Text('Videojuego', style: subTextStyle),
             ],
           ),
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.all(6.0),
+                padding: const EdgeInsets.all(2.0),
                 decoration: BoxDecoration(
-                  color: AppColors.gray.withValues(alpha: 0.4),
-                  borderRadius: BorderRadius.circular(15),
+                  color: AppColors.gray.withValues(alpha: 0.24),
+                  borderRadius: BorderRadius.circular(25),
                 ),
                 child: IconButton(
                   icon: const Icon(Icons.search),
-                  iconSize: 22.0,
+                  iconSize: 24.0,
                   color: Colors.white,
                   padding: EdgeInsets.zero,
                   onPressed: () {},
@@ -52,14 +52,14 @@ class HeaderWidget extends StatelessWidget {
               ),
               const SizedBox(width: 10.0),
               Container(
-                padding: const EdgeInsets.all(6.0),
+                padding: const EdgeInsets.all(2.0),
                 decoration: BoxDecoration(
-                  color: AppColors.gray.withValues(alpha: 0.4),
-                  borderRadius: BorderRadius.circular(15),
+                  color: AppColors.gray.withValues(alpha: 0.24),
+                  borderRadius: BorderRadius.circular(25),
                 ),
                 child: IconButton(
                   icon: const Icon(Icons.notifications),
-                  iconSize: 22.0,
+                  iconSize: 24.0,
                   color: Colors.white,
                   padding: EdgeInsets.zero,
                   onPressed: () {},
