@@ -37,8 +37,26 @@ class _ListCharactersState extends State<ListCharacters> {
               coverCard("cover3.jpg", "3.- ", "2001"),
             ],
           ),
+          const Divider(color: AppColors.yellow, thickness: 1),
+          const SizedBox(height: 20.0),
+          characterCard(
+            "Squall Leonhart",
+            0xff242424,
+            "assets/images/Squall.png",
+          ),
         ],
       ),
+    );
+  }
+
+  Widget characterCard(String name, int color, String image) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.darkBlue.withValues(alpha: 0.24),
+        borderRadius: BorderRadius.circular(25),
+      ),
+      height: 65,
+      child: Row(),
     );
   }
 
