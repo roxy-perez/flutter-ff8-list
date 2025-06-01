@@ -37,13 +37,14 @@ class _ListCharactersState extends State<ListCharacters> {
               coverCard("cover3.jpg", "3.- ", "2001"),
             ],
           ),
-          const Divider(color: AppColors.yellow, thickness: 1),
+          const Divider(color: AppColors.yellow, thickness: 0.5),
           const SizedBox(height: 20.0),
-          characterCard(
-            "Squall Leonhart",
-            0xff242424,
-            "assets/images/Squall.png",
-          ),
+          characterCard("Squall Leonhart", 0xff242424, "Squall"),
+          characterCard("Rinoa Heartilly", 0xff242424, "Rinoa"),
+          characterCard("Zell Dincht", 0xff242424, "Zell"),
+          characterCard("Quistis Trepe", 0xff242424, "Quistis"),
+          characterCard("Selphie Tilmitt", 0xff242424, "Selphie"),
+          characterCard("Irvine Kinneas", 0xff242424, "Irvine"),
         ],
       ),
     );
@@ -51,12 +52,55 @@ class _ListCharactersState extends State<ListCharacters> {
 
   Widget characterCard(String name, int color, String image) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 15.0),
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
       decoration: BoxDecoration(
-        color: AppColors.darkBlue.withValues(alpha: 0.24),
-        borderRadius: BorderRadius.circular(25),
+        color: AppColors.darkBlue.withValues(alpha: 0.09),
+        borderRadius: BorderRadius.circular(15),
       ),
-      height: 65,
-      child: Row(),
+      height: 80,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.yellow.withValues(alpha: 0.45),
+                      blurRadius: 15,
+                      spreadRadius: 4,
+                      offset: const Offset(-3, 2),
+                    ),
+                  ],
+                ),
+                padding: const EdgeInsets.all(8),
+                child: Image.asset(
+                  "assets/images/$image.png",
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(width: 20.0),
+              Text(
+                name,
+                style: TextStyle(
+                  color: AppColors.blue,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Montserrat',
+                ),
+              ),
+            ],
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.more_vert_rounded),
+            color: AppColors.lightBlue,
+          ),
+        ],
+      ),
     );
   }
 
@@ -64,7 +108,7 @@ class _ListCharactersState extends State<ListCharacters> {
     return Column(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(15),
           child: Image.asset(
             "assets/images/$image",
             width: widthCard * .31,
@@ -76,7 +120,11 @@ class _ListCharactersState extends State<ListCharacters> {
         RichText(
           text: TextSpan(
             text: title,
-            style: TextStyle(color: AppColors.gray, fontSize: 14),
+            style: TextStyle(
+              color: AppColors.gray,
+              fontSize: 14,
+              fontFamily: 'Montserrat',
+            ),
             children: [
               TextSpan(
                 text: subtitle,
@@ -84,6 +132,7 @@ class _ListCharactersState extends State<ListCharacters> {
                   color: AppColors.darkBlue,
                   fontSize: 15,
                   fontWeight: FontWeight.w400,
+                  fontFamily: 'Montserrat',
                 ),
               ),
             ],
