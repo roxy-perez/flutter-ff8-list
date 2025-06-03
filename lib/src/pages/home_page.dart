@@ -16,6 +16,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: AppColors.fullDarkBlue,
       body: Column(children: [HeaderWidget(), ListCharacters()]),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.yellow,
+        splashColor: AppColors.darkBlue.withValues(alpha: 0.2),
+        onPressed: () {},
+        child: const Icon(Icons.add, color: AppColors.fullDarkBlue, size: 24),
+      ),
     );
   }
 }

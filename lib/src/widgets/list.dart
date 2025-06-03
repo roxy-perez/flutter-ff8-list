@@ -1,3 +1,4 @@
+import 'package:final_fantasy_viii_list/src/pages/detail_page.dart';
 import 'package:final_fantasy_viii_list/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,7 @@ class _ListCharactersState extends State<ListCharacters> {
               coverCard("cover3.jpg", "3.- ", "2001"),
             ],
           ),
-          const Divider(color: AppColors.yellow, thickness: 0.5),
+          const Divider(color: AppColors.yellow, thickness: 0.4),
           const SizedBox(height: 20.0),
           characterCard("Squall Leonhart", 0xff242424, "Squall"),
           characterCard("Rinoa Heartilly", 0xff242424, "Rinoa"),
@@ -51,55 +52,62 @@ class _ListCharactersState extends State<ListCharacters> {
   }
 
   Widget characterCard(String name, int color, String image) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 15.0),
-      padding: const EdgeInsets.symmetric(horizontal: 12.0),
-      decoration: BoxDecoration(
-        color: AppColors.darkBlue.withValues(alpha: 0.09),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      height: 80,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.yellow.withValues(alpha: 0.45),
-                      blurRadius: 15,
-                      spreadRadius: 4,
-                      offset: const Offset(-3, 2),
-                    ),
-                  ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(
+          context,
+        ).push(MaterialPageRoute(builder: (context) => DetailPage()));
+      },
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 15.0),
+        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+        decoration: BoxDecoration(
+          color: AppColors.darkBlue.withValues(alpha: 0.09),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        height: 80,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.yellow.withValues(alpha: 0.45),
+                        blurRadius: 15,
+                        spreadRadius: 4,
+                        offset: const Offset(-3, 2),
+                      ),
+                    ],
+                  ),
+                  padding: const EdgeInsets.all(8),
+                  child: Image.asset(
+                    "assets/images/$image.png",
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                padding: const EdgeInsets.all(8),
-                child: Image.asset(
-                  "assets/images/$image.png",
-                  fit: BoxFit.cover,
+                const SizedBox(width: 20.0),
+                Text(
+                  name,
+                  style: TextStyle(
+                    color: AppColors.lightBlue,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Montserrat',
+                  ),
                 ),
-              ),
-              const SizedBox(width: 20.0),
-              Text(
-                name,
-                style: TextStyle(
-                  color: AppColors.blue,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  fontFamily: 'Montserrat',
-                ),
-              ),
-            ],
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.more_vert_rounded),
-            color: AppColors.lightBlue,
-          ),
-        ],
+              ],
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.more_vert_rounded),
+              color: AppColors.lightBlue,
+            ),
+          ],
+        ),
       ),
     );
   }
