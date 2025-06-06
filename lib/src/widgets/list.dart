@@ -40,12 +40,12 @@ class _ListCharactersState extends State<ListCharacters> {
           ),
           const Divider(color: AppColors.yellow, thickness: 0.4),
           const SizedBox(height: 20.0),
-          characterCard("Squall Leonhart", 0xff242424, "Squall"),
-          characterCard("Rinoa Heartilly", 0xff242424, "Rinoa"),
-          characterCard("Zell Dincht", 0xff242424, "Zell"),
-          characterCard("Quistis Trepe", 0xff242424, "Quistis"),
-          characterCard("Selphie Tilmitt", 0xff242424, "Selphie"),
-          characterCard("Irvine Kinneas", 0xff242424, "Irvine"),
+          characterCard("Squall Leonhart", 0xFFF25270, "Squall"),
+          characterCard("Rinoa Heartilly", 0xFF94CEF2, "Rinoa"),
+          characterCard("Zell Dincht", 0xFFF2E96B, "Zell"),
+          characterCard("Quistis Trepe", 0xff98fb98, "Quistis"),
+          characterCard("Selphie Tilmitt", 0xffffc0cb, "Selphie"),
+          characterCard("Irvine Kinneas", 0xFF909995, "Irvine"),
         ],
       ),
     );
@@ -54,9 +54,15 @@ class _ListCharactersState extends State<ListCharacters> {
   Widget characterCard(String name, int color, String image) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(
-          context,
-        ).push(MaterialPageRoute(builder: (context) => DetailPage()));
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => DetailPage(
+              color: color,
+              image: "assets/images/$image.png",
+              name: name,
+            ),
+          ),
+        );
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 15.0),
@@ -76,9 +82,10 @@ class _ListCharactersState extends State<ListCharacters> {
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.yellow.withValues(alpha: 0.45),
+                        color: Color(color),
                         blurRadius: 15,
                         spreadRadius: 4,
+                        blurStyle: BlurStyle.normal,
                         offset: const Offset(-3, 2),
                       ),
                     ],
